@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Namaste React
 
 ...
@@ -18,3 +19,6 @@
 - And also Parcel will do Code Splitting
 - Parcel also supports older browsers
 - Parcel will also do Error Handling
+=======
+# Namaste React 🚀
+>>>>>>> 7f664403f26719193cd66e2cdc9c4d5e1ac68458
