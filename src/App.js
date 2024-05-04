@@ -6,6 +6,8 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Cart from "./Components/Cart";
+// import RestaurantMenu from "./Components/RestaurantMenu";
 //Planning the Project
 /**
  * Header
@@ -27,6 +29,12 @@ const AppLayout = () => {
     <>
       <Header />
       <Outlet />
+      {/* This Outlet Components will work like this 
+      // if (path is /) then load
+      the component as <Body /> under the <Header /> Component 
+      // if (path is
+      “/about”) then load the component as <About /> under the <Header />{" "}
+      component */}
     </>
   );
 };
@@ -48,6 +56,14 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      // {
+      //   path: "/restaurant",
+      //   element: <RestaurantMenu />,
+      // },
     ],
     errorElement: <Error />,
   },
