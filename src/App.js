@@ -1,13 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
-import About from "./Components/About";
+// import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Cart from "./Components/Cart";
+// import Grocery from "./Components/Grocery";
 // import RestaurantMenu from "./Components/RestaurantMenu";
+
 //Planning the Project
 /**
  * Header
@@ -23,6 +25,15 @@ import Cart from "./Components/Cart";
  *  - Address
  *  - Contact
  */
+
+// Lazy Loading  this Lazy Loading have different names
+// Chuncking
+// Code Splitting
+// Dynamic Bundling
+// Dynamic import
+// On Demand Loading we can call different names of Lazy Loading
+const Grocery = lazy(() => import("./Components/Grocery"));
+const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
   return (
@@ -50,11 +61,23 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
